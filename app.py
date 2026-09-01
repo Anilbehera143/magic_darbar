@@ -149,3 +149,148 @@ if prompt := st.chat_input("Enter command into MAYA OS terminal..."):
     st.session_state.messages.append({"role": "assistant", "content": response})
     with st.chat_message("assistant", avatar="⚡"):
         st.markdown(response)
+import streamlit as st
+
+st.set_page_config(page_title="MAYA OS v7.0", page_icon="⚡", layout="wide")
+
+# Full Screen Responsive MAYA OS Code (Pure English)
+maya_fullscreen_code = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { box-sizing: border-box; }
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #02050e;
+            color: #00f0ff;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+        }
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 15px;
+        }
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(0, 240, 255, 0.4);
+            padding-bottom: 10px;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr 280px;
+            gap: 20px;
+            flex-grow: 1;
+            margin-top: 15px;
+        }
+        .side-box, .center-box {
+            background: rgba(0, 240, 255, 0.02);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .box-title {
+            font-size: 13px;
+            color: #ff007f;
+            border-bottom: 1px dashed rgba(255, 0, 127, 0.4);
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
+        .center-box {
+            align-items: center;
+            text-align: center;
+        }
+        .holo-orb {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg at 50% 50%, #ff007f, #7f00ff, #00f0ff, #00ff7f, #ff007f);
+            box-shadow: 0 0 60px #00f0ff, inset 0 0 40px #ffffff;
+            animation: spin-orb 6s linear infinite;
+        }
+        @keyframes spin-orb {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .metric-bar {
+            background: rgba(0, 240, 255, 0.1);
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .metric-fill {
+            background: #00f0ff;
+            height: 100%;
+            width: 75%;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="top-header">
+            <div><b>MAYA OS v7.0</b> // SYSTEM INTERFACE</div>
+            <div id="live-clock">00:00:00</div>
+            <div>STATUS: <span style="color:#00ffcc;">ONLINE & SECURE</span></div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="side-box">
+                <div class="box-title">SYSTEM METRICS</div>
+                <p style="font-size: 12px; margin: 0;">CORE PROCESSOR LOAD</p>
+                <div class="metric-bar"><div class="metric-fill" style="width: 82%;"></div></div>
+                
+                <p style="font-size: 12px; margin: 0;">NEURAL NETWORK SYNC</p>
+                <div class="metric-bar"><div class="metric-fill" style="width: 95%; background: #ff007f;"></div></div>
+                
+                <p style="font-size: 12px; margin: 0;">QUANTUM MEMORY</p>
+                <div class="metric-bar"><div class="metric-fill" style="width: 58%; background: #00ffcc;"></div></div>
+            </div>
+
+            <div class="center-box">
+                <div class="holo-orb"></div>
+                <h2 style="margin-top: 20px; letter-spacing: 3px; color: #00f0ff; font-size: 22px;">ADVANCED NEURAL CORE</h2>
+                <p style="font-size: 13px; color: #a78bfa; margin-top: 5px;">ALL SUBSYSTEMS FULLY OPERATIONAL</p>
+            </div>
+
+            <div class="side-box">
+                <div class="box-title">ACTIVE MODULES</div>
+                <ul style="font-size: 12px; padding-left: 18px; line-height: 2; color: #a78bfa;">
+                    <li>NEURAL VOICE ENGINE</li>
+                    <li>QUANTUM DATA PROCESSOR</li>
+                    <li>HOLOGRAPHIC RENDERER</li>
+                    <li>SECURITY PROTOCOL v7</li>
+                    <li>AUTONOMOUS AI CORE</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            const d = new Date();
+            document.getElementById('live-clock').innerText = d.toTimeString().split(' ')[0];
+        }, 1000);
+    </script>
+</body>
+</html>
+"""
+
+# Render full screen component with proper height
+st.components.v1.html(maya_fullscreen_code, height=650, scrolling=False)

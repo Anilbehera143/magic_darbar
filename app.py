@@ -124,3 +124,7 @@ tech_hand_code = """
             <div class="palm-line-1"></div>
             <div class="palm-line-2"></div>
             <div class="palm-line-
+File "/mount/src/magic_darbar/app.py", line 6
+  tech_hand_code = """
+                   ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 126)

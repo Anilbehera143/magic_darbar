@@ -1,9 +1,9 @@
 import streamlit as st
 
-st.set_page_config(page_title="Cybernetic Tech Heart", page_icon="⚡", layout="wide")
+st.set_page_config(page_title="Cybernetic Hand Core", page_icon="⚡", layout="wide")
 
-# Step 2: High-Tech Cybernetic Holographic Heart (Pure English)
-tech_heart_code = """
+# Step 3: High-Tech Digital Robotic Hand with Glowing Neural Lines (Pure English)
+tech_hand_code = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,92 +22,93 @@ tech_heart_code = """
             font-family: 'Courier New', Courier, monospace;
         }
 
-        /* Container for Tech Core */
-        .tech-container {
+        .container {
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Holographic Glowing Palm / Hand Graphic using futuristic CSS */
+        .cyber-hand {
+            position: relative;
+            width: 180px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(0,240,255,0.2) 0%, rgba(2,5,14,0.9) 80%);
+            border: 2px solid rgba(0, 240, 255, 0.5);
+            border-radius: 40px 40px 60px 60px;
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.4), inset 0 0 30px rgba(0, 240, 255, 0.3);
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: hand-pulse 2s ease-in-out infinite alternate;
         }
 
-        /* Rotating Tech Rings Around the Heart */
-        .tech-ring {
+        /* Glowing Palm Lines (Hand Lines / Neural Paths) */
+        .palm-line-1 {
             position: absolute;
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            border: 2px dashed rgba(0, 240, 255, 0.4);
-            animation: spin-ring 10s linear infinite;
+            width: 80px;
+            height: 3px;
+            background: #ff007f;
+            box-shadow: 0 0 10px #ff007f;
+            transform: rotate(45deg);
+            top: 90px;
+            left: 50px;
+            animation: line-glow 1.5s infinite alternate;
         }
 
-        .tech-ring-2 {
+        .palm-line-2 {
             position: absolute;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 0, 127, 0.3);
-            animation: spin-ring-rev 15s linear infinite;
+            width: 70px;
+            height: 3px;
+            background: #00f0ff;
+            box-shadow: 0 0 10px #00f0ff;
+            transform: rotate(-35deg);
+            top: 110px;
+            left: 55px;
+            animation: line-glow 1s infinite alternate;
         }
 
-        /* Futuristic Neon Tech Heart */
-        .cyber-heart {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, #00f0ff, #7f00ff, #ff007f);
-            transform: rotate(-45deg);
-            box-shadow: 0 0 40px #00f0ff, 0 0 80px #7f00ff;
-            animation: tech-pulse 1s infinite ease-in-out;
-        }
-
-        .cyber-heart::before,
-        .cyber-heart::after {
-            content: '';
+        .palm-line-3 {
             position: absolute;
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(135deg, #00f0ff, #7f00ff, #ff007f);
+            width: 50px;
+            height: 3px;
+            background: #00ffcc;
+            box-shadow: 0 0 10px #00ffcc;
+            transform: rotate(90deg);
+            top: 130px;
+            left: 65px;
+            animation: line-glow 2s infinite alternate;
+        }
+
+        /* Rotating Energy Rings Around Hand */
+        .energy-ring {
+            position: absolute;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
+            border: 2px dashed rgba(255, 0, 127, 0.4);
+            animation: spin 12s linear infinite;
         }
 
-        .cyber-heart::before {
-            top: -70px;
-            left: 0;
-        }
-
-        .cyber-heart::after {
-            left: 70px;
-            top: 0;
-        }
-
-        @keyframes tech-pulse {
-            0% {
-                transform: rotate(-45deg) scale(0.96);
-                box-shadow: 0 0 30px #00f0ff, 0 0 70px #ff007f;
-            }
-            50% {
-                transform: rotate(-45deg) scale(1.08);
-                box-shadow: 0 0 60px #00f0ff, 0 0 120px #00ffcc;
-            }
-            100% {
-                transform: rotate(-45deg) scale(0.96);
-                box-shadow: 0 0 30px #00f0ff, 0 0 70px #ff007f;
-            }
-        }
-
-        @keyframes spin-ring {
+        @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes spin-ring-rev {
-            0% { transform: rotate(360deg); }
-            100% { transform: rotate(0deg); }
+        @keyframes hand-pulse {
+            0% { box-shadow: 0 0 30px rgba(0, 240, 255, 0.3); transform: scale(0.98); }
+            100% { box-shadow: 0 0 70px rgba(0, 240, 255, 0.7); transform: scale(1.03); }
         }
 
-        .label-text {
-            position: absolute;
-            bottom: -80px;
+        @keyframes line-glow {
+            0% { opacity: 0.4; }
+            100% { opacity: 1; filter: drop-shadow(0 0 8px #ffffff); }
+        }
+
+        .status-text {
+            margin-top: 30px;
             color: #00f0ff;
             font-size: 14px;
             letter-spacing: 3px;
@@ -117,15 +118,9 @@ tech_heart_code = """
     </style>
 </head>
 <body>
-    <div class="tech-container">
-        <div class="tech-ring-2"></div>
-        <div class="tech-ring"></div>
-        <div class="cyber-heart"></div>
-        <div class="label-text">CYBER-CORE // ONLINE</div>
-    </div>
-</body>
-</html>
-"""
-
-# Render the High-Tech Cyber Heart component
-st.components.v1.html(tech_heart_code, height=520, scrolling=False)
+    <div class="container">
+        <div class="energy-ring"></div>
+        <div class="cyber-hand">
+            <div class="palm-line-1"></div>
+            <div class="palm-line-2"></div>
+            <div class="palm-line-

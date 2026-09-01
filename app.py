@@ -128,3 +128,7 @@ File "/mount/src/magic_darbar/app.py", line 6
   tech_hand_code = """
                    ^
 SyntaxError: unterminated triple-quoted string literal (detected at line 126)
+File "/mount/src/magic_darbar/app.py", line 129
+                     ^
+                    ^
+IndentationError: unexpected indent

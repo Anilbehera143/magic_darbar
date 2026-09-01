@@ -1,11 +1,11 @@
 import streamlit as st
 
-st.set_page_config(page_title="Magic Galaxy", page_icon="🌌", layout="wide")
+st.set_page_config(page_title="राधा रानी जादुई दरबार", page_icon="🌌", layout="wide")
 
-# पूरी स्क्रीन पर फैली हुई और धीरे-धीरे घूमने वाली असली गैलेक्सी का कोड
+# वीडियो बैकग्राउंड और दिव्य दरबार का फाइनल कोड
 st.markdown("""
     <style>
-    /* Streamlit के डिफ़ॉल्ट मार्जिन और हेडर हटाकर पूरी स्क्रीन खाली करना */
+    /* Streamlit के डिफ़ॉल्ट मार्जिन हटाना */
     [data-testid="stAppViewContainer"] {
         background: #000000;
         padding: 0 !important;
@@ -15,25 +15,39 @@ st.markdown("""
         display: none !important;
     }
     
-    .full-screen-galaxy {
+    /* बैकग्राउंड वीडियो को पूरी स्क्रीन पर सेट करना */
+    .bg-video {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=2000&auto=format&fit=crop');
-        background-size: cover;
-        background-position: center;
-        animation: rotate-universe 40s linear infinite;
+        object-fit: cover;
         z-index: 1;
     }
 
-    @keyframes rotate-universe {
-        0% { transform: scale(1) rotate(0deg); }
-        50% { transform: scale(1.08) rotate(180deg); }
-        100% { transform: scale(1) rotate(360deg); }
+    /* नीचे दरबार का बैनर */
+    .darbar-banner {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 25px;
+        border-radius: 25px;
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        box-shadow: 0 0 25px rgba(127, 0, 255, 0.8);
     }
     </style>
 
-    <div class="full-screen-galaxy"></div>
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-galaxy-in-space-4264-large.mp4" type="video/mp4">
+    </video>
+    
+    <div class="darbar-banner">
+        <h2 style='color: #00f0ff; margin: 0; font-size: 22px; text-shadow: 0 0 10px #00f0ff;'>🔮 राधा रानी जादुई दरबार 🔮</h2>
+        <p style='color: #ffffff; margin: 3px 0 0 0; font-size: 13px;'><i>अरे अनिल भाई, दिव्य दरबार सज चुका है!</i></p>
+    </div>
 """, unsafe_allow_html=True)

@@ -2,64 +2,87 @@ import streamlit as st
 
 st.set_page_config(page_title="ब्रह्मांड गैलेक्सी", page_icon="🌌", layout="centered")
 
-# सिर्फ गैलेक्सी और ब्रह्मांड का कोड
+# असली डीप-स्पेस गैलेक्सी और तारों भरा ब्रह्मांड
 st.markdown("""
     <style>
-    .stApp { background-color: #010104; }
+    .stApp { background-color: #000003; }
     
-    .universe-container {
+    .space-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 80vh;
-    }
-    
-    .galaxy {
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        background: conic-gradient(from 0deg at 50% 50%, #ff007f, #7f00ff, #00f0ff, #00ffcc, #ffcc00, #ff007f);
-        box-shadow: 0 0 90px #7f00ff, 0 0 160px #00f0ff, inset 0 0 60px #ffffff;
-        animation: rotate-galaxy 10s linear infinite, pulse-galaxy 4s ease-in-out infinite alternate;
+        height: 85vh;
         position: relative;
+        overflow: hidden;
     }
 
-    .galaxy::before {
-        content: '';
+    /* असली घूमती हुई गैलेक्सी का कोर और आर्म्स */
+    .true-galaxy {
+        width: 320px;
+        height: 320px;
+        position: relative;
+        animation: galaxy-spin 25s linear infinite;
+    }
+
+    /* गैलेक्सी का चमकीला केंद्र (Core) */
+    .galaxy-core {
         position: absolute;
-        top: 15px; left: 15px; right: 15px; bottom: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90px;
+        height: 90px;
+        background: radial-gradient(circle, #ffffff 0%, #ffddaa 40%, #ff5500 70%, transparent 100%);
         border-radius: 50%;
-        border: 2px dashed rgba(255, 255, 255, 0.5);
-        animation: rotate-reverse 15s linear infinite;
+        box-shadow: 0 0 50px #ffaa00, 0 0 100px #ff3300;
+        z-index: 2;
     }
 
-    .galaxy::after {
-        content: '';
+    /* गैलेक्सी की फैली हुई स्पाइरल भुजाएं */
+    .spiral-arm-1, .spiral-arm-2 {
         position: absolute;
-        top: 50px; left: 50px; right: 50px; bottom: 50px;
+        top: 0; left: 0; right: 0; bottom: 0;
         border-radius: 50%;
-        background: radial-gradient(circle, #ffffff 10%, rgba(127,0,255,0.6) 50%, transparent 80%);
-        animation: pulse-galaxy 2s ease-in-out infinite alternate;
+        border: 4px solid transparent;
+        border-top-color: rgba(0, 242, 254, 0.7);
+        border-right-color: rgba(120, 0, 255, 0.6);
+        filter: blur(4px);
     }
 
-    @keyframes rotate-galaxy {
+    .spiral-arm-1 {
+        animation: spin-clockwise 8s linear infinite;
+    }
+
+    .spiral-arm-2 {
+        animation: spin-counter 12s linear infinite;
+        transform: rotate(45deg);
+        border-top-color: rgba(255, 0, 128, 0.7);
+        border-left-color: rgba(0, 255, 200, 0.5);
+    }
+
+    @keyframes galaxy-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes spin-clockwise {
         0% { transform: rotate(0deg) scale(1); }
-        50% { transform: rotate(180deg) scale(1.04); }
+        50% { transform: rotate(180deg) scale(1.08); }
         100% { transform: rotate(360deg) scale(1); }
     }
 
-    @keyframes rotate-reverse {
-        0% { transform: rotate(360deg); }
-        100% { transform: rotate(0deg); }
-    }
-
-    @keyframes pulse-galaxy {
-        0% { box-shadow: 0 0 60px #7f00ff, 0 0 100px #00f0ff; }
-        100% { box-shadow: 0 0 120px #ff007f, 0 0 200px #00ffcc; }
+    @keyframes spin-counter {
+        0% { transform: rotate(360deg) scale(1.05); }
+        50% { transform: rotate(180deg) scale(1); }
+        100% { transform: rotate(0deg) scale(1.05); }
     }
     </style>
 
-    <div class="universe-container">
-        <div class="galaxy"></div>
+    <div class="space-container">
+        <div class="true-galaxy">
+            <div class="galaxy-core"></div>
+            <div class="spiral-arm-1"></div>
+            <div class="spiral-arm-2"></div>
+        </div>
     </div>
 """, unsafe_allow_html=True)
